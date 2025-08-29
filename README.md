@@ -1,6 +1,6 @@
-FINAL PROJECT: Text-Based Trivia Game
+# FINAL PROJECT: Text-Based Trivia Game
 
-For Reference (Name | Github Username)
+## For Reference (Name | Github Username)
 => Mary Christen Gemel Tolentino | @mcgtolentino 
 => Dylan Isaac Vela | @DVela-Code 
 => Ann Carleen Gaile Cuevas | @kotseleeeeen
@@ -8,14 +8,14 @@ For Reference (Name | Github Username)
 => Ryan Jay Buenaventura | @flyingadobo
 => Megan Isabel Sharpe | @mijsharpe
 
-Roles:
-# Programmers (ALL MEMBERS)
+# Roles:
+## Programmers (ALL MEMBERS)
   => questions.py => Cuevas & De Vera
   => players.py => Tolentino & Vela
   => quizgame.py => Buenaventura & Sharpe
 
-# Researchers
+## Researchers
   => Tolentino & Vela
 
-# Documentators
+## Documentators
   => Cuevas & De Vera
