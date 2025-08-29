@@ -16,6 +16,10 @@ Text-Based Trivia Game: Questions Module
 This class represents the questions module of the Trivia Game
 '''
 
+# ---------------
+# Questions Class 
+# ---------------
+
 class Questions:
      '''
      Represents questions in the Text-Based Trivia Game
@@ -55,7 +59,7 @@ class Questions:
 
 class PopCultureQuestions (Questions):
     '''
-    Represents a Pop Culture Questions in the trivia game.
+    Represents Pop Culture Questions in the trivia game.
     Inherits from the Question class and returns category as "Pop Culture"
     '''
     def __init__(self, question_text, answers, correct_answer):
@@ -64,7 +68,7 @@ class PopCultureQuestions (Questions):
                          
 class AnimeQuestions (Questions):
     '''
-    Represents a Anime Questions in the trivia game.
+    Represents Anime Questions in the trivia game.
     Inherits from the Question class and returns category as "Anime"
     '''
     def __init__(self, question_text, answers, correct_answer):
@@ -73,9 +77,10 @@ class AnimeQuestions (Questions):
 
 class GameQuestions (Questions):
     '''
-    Represents a Game Questions in the trivia game.
+    Represents Game Questions in the trivia game.
     Inherits from the Question class and returns category as "Game"
     '''
     def __init__(self, question_text, answers, correct_answer):
          # the super function allows the GameQuestions to inherit all the methods and attributes of the Questions class
         super().__init__(question_text, answers, correct_answer, category="Game")
+
