@@ -116,5 +116,5 @@ class Player:
                 player.delete_saved_game()
                 play_again = input("\nDo you want to go back to main categories? (yes/no): ").lower()
                 if play_again != "yes":
-                print("Thanks for playing!")
+                    print("Thanks for playing!")
                 exit()
