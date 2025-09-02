@@ -41,8 +41,7 @@ class Questions:
           self.__answer = answer                                 # string attribute
           self.__correct_answers = correct_answers or []         # string attribute or list (depending on the answers)
           self.__category = category                             # string attribute
-          self.__subcategory = subcategory or []                 # string attribute or list (depending on the listed subcategories)\
-          # brb, will come back to editing subcategory later - aria
+          self.__subcategory = subcategory or []                 # string attribute or list (depending on the listed subcategories)
           
      def get_question_text(self):
           ''' Returns the question text of the game. '''
@@ -60,6 +59,15 @@ class Questions:
           ''' Returns the category of the game. '''
           return self.__category
 
+     def get_subcategory(self):
+          ''' Returns the subcategory of the question.'''
+          return self.__subcategory
+
+     def update_subcategory(self, subcategory):
+          ''' Updates / adds the subcategory of the question. '''
+         if subcategory:
+              self.__subcategory = subcategory
+
 class PopCultureQuestions (Questions):
     '''
     Represents Pop Culture Questions in the trivia game.
@@ -67,7 +75,7 @@ class PopCultureQuestions (Questions):
     '''
     def __init__(self, question_text, answers, correct_answer):
          # the super function allows the PopCultureQuestions to inherit all the methods and attributes of the Questions class
-        super().__init__(question_text, answers, correct_answer, category="Pop Culture")
+        super().__init__(question_text, answers, correct_answer, category, subcategory="Pop Culture")
                          
 class AnimeQuestions (Questions):
     '''
@@ -76,7 +84,7 @@ class AnimeQuestions (Questions):
     '''
     def __init__(self, question_text, answers, correct_answer):
          # the super function allows the AnimeQuestions to inherit all the methods and attributes of the Questions class
-        super().__init__(question_text, answers, correct_answer, category="Anime")
+        super().__init__(question_text, answers, correct_answer, category, subcategory="Anime")
 
 class GameQuestions (Questions):
     '''
@@ -85,6 +93,4 @@ class GameQuestions (Questions):
     '''
     def __init__(self, question_text, answers, correct_answer):
          # the super function allows the GameQuestions to inherit all the methods and attributes of the Questions class
-        super().__init__(question_text, answers, correct_answer, category="Game")
-
-
+        super().__init__(question_text, answers, correct_answer, category, subcategory="Game")
