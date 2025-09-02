@@ -34,12 +34,15 @@ class Questions:
           answer: The answer to the question in the Trivia Game
           correct_answers: The correct answers to the question in the Trivia Game
           category: The category of the questions in the Trivia Game
+          subcategory: The subcategory of questions in the Trivia Game
           '''
           
           self.question_text = question_text                     # string attribute
           self.__answer = answer                                 # string attribute
           self.__correct_answers = correct_answers or []         # string attribute or list (depending on the answers)
           self.__category = category                             # string attribute
+          self.__subcategory = subcategory or []                 # string attribute or list (depending on the listed subcategories)\
+          # brb, will come back to editing subcategory later - aria
           
      def get_question_text(self):
           ''' Returns the question text of the game. '''
@@ -83,4 +86,5 @@ class GameQuestions (Questions):
     def __init__(self, question_text, answers, correct_answer):
          # the super function allows the GameQuestions to inherit all the methods and attributes of the Questions class
         super().__init__(question_text, answers, correct_answer, category="Game")
+
 
