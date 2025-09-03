@@ -39,7 +39,7 @@ class Questions:
           
           self.question_text = question_text                     # string attribute
           self.__answer = answer                                 # string attribute
-          self.__correct_answers = correct_answers or []         # string attribute or list (depending on the answers)
+          self.__correct_answers = correct_answers               # string attribute
           self.__category = category                             # string attribute
           self.__subcategory = subcategory or []                 # string attribute or list (depending on the listed subcategories)
           
@@ -90,3 +90,4 @@ class GameQuestions (Questions):
     def __init__(self, question_text, answers, correct_answer):
          # the super function allows the GameQuestions to inherit all the methods and attributes of the Questions class
         super().__init__(question_text, answers, correct_answer, category="Game")
+
