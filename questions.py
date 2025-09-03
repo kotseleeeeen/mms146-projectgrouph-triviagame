@@ -63,31 +63,31 @@ class Questions:
           ''' Returns the subcategory of the question.'''
           return self.__subcategory
 
-
+#Adjusted to prevent missmatching keywords | Added 'subcategory' as a parameter | applicable to all 'Questions' subclass
 class PopCultureQuestions (Questions):
     '''
     Represents Pop Culture Questions in the trivia game.
     Inherits from the Question class and returns category as "Pop Culture"
     '''
-    def __init__(self, question_text, answers, correct_answer):
+    def __init__(self, question_text, answer, correct_answers, subcategory):
          # the super function allows the PopCultureQuestions to inherit all the methods and attributes of the Questions class
-        super().__init__(question_text, answers, correct_answer, category="Pop Culture")
+        super().__init__(question_text, answer, correct_answers, category="Pop Culture", subcategory=subcategory)
                          
 class AnimeQuestions (Questions):
     '''
     Represents Anime Questions in the trivia game.
     Inherits from the Question class and returns category as "Anime"
     '''
-    def __init__(self, question_text, answers, correct_answer):
+    def __init__(self, question_text, answer, correct_answers, subcategory):
          # the super function allows the AnimeQuestions to inherit all the methods and attributes of the Questions class
-        super().__init__(question_text, answers, correct_answer, category="Anime")
+        super().__init__(question_text, answer, correct_answers, category="Anime", subcategory=subcategory)
 
 class GameQuestions (Questions):
     '''
     Represents Game Questions in the trivia game.
     Inherits from the Question class and returns category as "Game"
     '''
-    def __init__(self, question_text, answers, correct_answer):
+    def __init__(self, question_text, answer, correct_answers, subcategory):
          # the super function allows the GameQuestions to inherit all the methods and attributes of the Questions class
-        super().__init__(question_text, answers, correct_answer, category="Game")
+        super().__init__(question_text, answer, correct_answers, category="Game", subcategory=subcategory)
 
