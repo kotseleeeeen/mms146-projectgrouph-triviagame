@@ -1,4 +1,5 @@
 from questions import PopCultureQuestions, AnimeQuestions, GameQuestions
+from questions import Questions #Crucial Import to fascilitate method calls
 import random
 
 quiz_questions = {
@@ -110,18 +111,27 @@ class QuizGame:
 
     def get_score(self):
         return self.__score
-    
+    #Opted to use method calls to access non-subscriptable objects
     def load_from_nested_dict(self, nested): 
         for category, subcats in nested.items():
             for subcategory, questions in subcats.items():
                 for q in questions:
-                    self.__question_bank.append({
-                        "question_text": q["question"],
-                        "answers": q["options"],
-                        "correct_answer": q["answer"],
-                        "category": category,
-                        "subcategory": subcategory,
-                    })
+                    if isinstance(q, Questions):
+                        self.__question_bank.append({
+                            "question_text": q.get_question_text(),
+                            "answers": q.get_answer(),
+                            "correct_answer": q.get_correct_answers(),
+                            "category": q.get_category(),
+                            "subcategory": q.get_subcategory(),
+                        })
+                    else:
+                        self.__question_bank.append({
+                            "question_text": q["question"],
+                            "answers": q["options"],
+                            "correct_answer": q["answer"],
+                            "category": category,
+                            "subcategory": subcategory,
+                        })
     
     def display_question(self, index):
         '''
