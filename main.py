@@ -156,6 +156,7 @@ class Player:
     def set_name(self, player_name):
         ''' Updates the name of the player '''
         self.player_name = player_name
+        self.save_file = f"{self.player_name}_save.json"
                
     def save_game_status(self, category, subcategory, score, question_index):
         progress = {
