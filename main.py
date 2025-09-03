@@ -147,6 +147,7 @@ class Player:
         player_name: The name of the player in the Trivia Game
         '''
         self.player_name = player_name                            # string attribute
+        self.save_file = f"{self.player_name}_save.json"
 
     def get_name(self):
         ''' Returns the name of the player. '''
