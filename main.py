@@ -127,25 +127,30 @@ quiz_questions = {
 
 letters = ["a", "b", "c", "d"]
 
+# -------------------------------
+# Start of Game
+# -------------------------------
+
+# Ask for player name => Moved it lang ditoo - karlen
+name = input("Enter your name: ")
+player = Player(name)
+print(f"Welcome, {player.get_name()}! Are you ready to play?\n")
+
+quiz = QuizGame()
+
 # Load all questions
 quiz.load_from_nested_dict(quiz_questions)
 
 quiz.shuffle_question_bank()
 quiz.reset_game()
 
-# -------------------------------
-# Start of Game
-# -------------------------------
-
-name = input("Enter your name: ")
-player = Player(name)
-print(f"Welcome, {player.get_name()}! Are you ready to play?\n")
 
 # Added: Resume game if save file exists. 
 # Basically, if the game is interupted before the end, 
 # you will given the choice to continue from where you left off. 
 # Please remove if it breaks anything. ~ Dylan
 resume_saved_game(player, quiz_questions, letters)
+
 
 # -------------------------------
 # Main game loop
