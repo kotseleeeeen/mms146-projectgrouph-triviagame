@@ -1,4 +1,4 @@
-# Dataset for the Questions, Answers (Options, Correct Answer
+# Dataset for the Questions, Answers (Options), Correct Answer
 
 quiz_questions = {
     "Pop Culture Trivia": {
@@ -114,3 +114,5 @@ quiz_questions = {
         ]
     }
 }
+
+letters = ["a", "b", "c", "d"]
