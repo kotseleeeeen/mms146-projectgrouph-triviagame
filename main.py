@@ -4,107 +4,134 @@
 
 import os  # Added: Required for file handling in save/resume features. Feel free to remove in case it breaks anything.
            # ~ Dylan
+from player import *
+from questions import *
+from quizgame import *
+
+# Dataset for the Questions, Answers (Options), Correct Answer
 
 quiz_questions = {
-    "Pop Culture": {
+    "Pop Culture Trivia": {
         "Celebrity Culture": [
-            {
-                "question": "Who was the first Black woman to win the Academy Award for Best Actress in 2002?",
-                "options": ["Halle Berry", "Viola Davis", "Whoopi Goldberg", "Angela Basset"],
-                "answer": "Halle Berry"
-            },
-            {
-                "question": "Which rap song holds the record for winning the most Grammy Awards?",
-                "options": ["Lose Yourself – Eminem", "God’s Plan – Drake", "Alright – Kendrick Lamar", "Not Like Us – Kendrick Lamar"],
-                "answer": "Alright – Kendrick Lamar"
-            },
-            {
-                "question": "What was the name of the 2019 YouTube video in which Tati Westbrook ended her friendship with James Charles?",
-                "options": ["Breaking My Silence", "Bye James", "Bye Sister", "Sisters No More"],
-                "answer": "Bye Sister"
-            }
+            PopCultureQuestions(
+                question_text="Who was the first Black woman to win the Academy Award for Best Actress in 2002?",
+                answer=["Halle Berry", "Viola Davis", "Whoopi Goldberg", "Angela Bassett"],
+                correct_answers="Halle Berry",
+                subcategory="Celebrity Culture"
+            ),
+            PopCultureQuestions(
+                question_text="Which rap song holds the record for winning the most Grammy Awards?",
+                answer=["Lose Yourself – Eminem", "God’s Plan – Drake", "Alright – Kendrick Lamar", "Not Like Us – Kendrick Lamar"],
+                correct_answers="Alright – Kendrick Lamar",
+                subcategory="Celebrity Culture"
+            ),
+            PopCultureQuestions(
+                question_text="What was the name of the 2019 YouTube video in which Tati Westbrook ended her friendship with James Charles?",
+                answer=["Breaking My Silence", "Bye James", "Bye Sister", "Sisters No More"],
+                correct_answers="Bye Sister",
+                subcategory="Celebrity Culture"
+            ),
         ],
         "Movies": [
-            {
-                "question": "What is the highest-grossing film of all time?",
-                "options": ["Avengers: Endgame", "Titanic", "Avatar", "Star Wars: The Force Awakens"],
-                "answer": "Avatar"
-            },
-            {
-                "question": "Which historical document does Nicholas Cage’s character steal in National Treasure?",
-                "options": ["The Declaration of Independence", "The U.S. Constitution", "The Bill of Rights", "The Articles of Confederation"],
-                "answer": "The Declaration of Independence"
-            },
-            {
-                "question": "Which of the following is the longest non-experimental narrative film ever made?",
-                "options": ["Logistics", "Amra Ekta Cinema Banabo", "The Cure for Insomnia", "Out 1"],
-                "answer": "Amra Ekta Cinema Banabo"
-            }
+            PopCultureQuestions(
+                question_text="What is the highest-grossing film of all time?",
+                answer=["Avengers: Endgame", "Titanic", "Avatar", "Star Wars: The Force Awakens"],
+                correct_answers="Avatar",
+                subcategory="Movies"
+            ),
+            PopCultureQuestions(
+                question_text="Which historical document does Nicholas Cage’s character steal in National Treasure?",
+                answer=["The Declaration of Independence", "The U.S. Constitution", "The Bill of Rights", "The Articles of Confederation"],
+                correct_answers="The Declaration of Independence",
+                subcategory="Movies"
+            ),
+            PopCultureQuestions(
+                question_text="Which of the following is the longest non-experimental narrative film ever made?",
+                answer=["Logistics", "Amra Ekta Cinema Banabo", "The Cure for Insomnia", "Out 1"],
+                correct_answers="Amra Ekta Cinema Banabo",
+                subcategory="Movies"
+            ),
         ],
         "TV": [
-            {
-                "question": "Which TV show ends by suddenly cutting to black?",
-                "options": ["True Detective", "The Sopranos", "Breaking Bad", "Lost"],
-                "answer": "The Sopranos"
-            },
-            {
-                "question": "Game of Thrones is based on which book series by George R.R. Martin?",
-                "options": ["A Song of Ice and Fire", "A Clash of Kings", "A Dance with Dragons", "The Witcher"],
-                "answer": "A Song of Ice and Fire"
-            },
-            {
-                "question": "What was the name of the coffee shop in Friends?",
-                "options": ["Brewster’s", "The Daily Grind", "Bean There", "Central Perk"],
-                "answer": "Central Perk"
-            },
-            {
-                "question": "Which morning TV show was involved in a scandal when two anchors were revealed to be in an extramarital relationship?",
-                "options": ["CBS This Morning", "Morning Joe", "Good Morning America", "Today"],
-                "answer": "Good Morning America"
-            }
+            PopCultureQuestions(
+                question_text="Which TV show ends by suddenly cutting to black?",
+                answer=["True Detective", "The Sopranos", "Breaking Bad", "Lost"],
+                correct_answers="The Sopranos",
+                subcategory="TV"
+            ),
+            PopCultureQuestions(
+                question_text="Game of Thrones is based on which book series by George R.R. Martin?",
+                answer=["A Song of Ice and Fire", "A Clash of Kings", "A Dance with Dragons", "The Witcher"],
+                correct_answers="A Song of Ice and Fire",
+                subcategory="TV"
+            ),
+            PopCultureQuestions(
+                question_text="What was the name of the coffee shop in Friends?",
+                answer=["Brewster’s", "The Daily Grind", "Bean There", "Central Perk"],
+                correct_answers="Central Perk",
+                subcategory="TV"
+            ),
+            PopCultureQuestions(
+                question_text="Which morning TV show was involved in a scandal when two anchors were revealed to be in an extramarital relationship?",
+                answer=["CBS This Morning", "Morning Joe", "Good Morning America", "Today"],
+                correct_answers="Good Morning America",
+                subcategory="TV"
+            ),
         ]
     },
     "Game Trivia": {
         "Video Games": [
-            {
-                "question": "Which game features the character Link?",
-                "options": ["Super Mario", "Zelda", "Halo", "Minecraft"],
-                "answer": "Zelda"
-            },
-            {
-                "question": "Which video game series has creatures called 'Pokémon'?",
-                "options": ["Digimon", "Pokémon", "Yu-Gi-Oh!", "Dragon Ball Z"],
-                "answer": "Pokémon"
-            },
-            {
-                "question": "What is the best-selling video game of all time?",
-                "options": ["Minecraft", "Tetris", "Grand Theft Auto V", "Wii Sports"],
-                "answer": "Minecraft"
-            }
+            GameQuestions(
+                question_text="Which game features the character Link?",
+                answer=["Super Mario", "Zelda", "Halo", "Minecraft"],
+                correct_answers="Zelda",
+                subcategory="Video Games"
+            ),
+            GameQuestions(
+                question_text="Which video game series has creatures called 'Pokémon'?",
+                answer=["Digimon", "Pokémon", "Yu-Gi-Oh!", "Dragon Ball Z"],
+                correct_answers="Pokémon",
+                subcategory="Video Games"
+            ),
+            GameQuestions(
+                question_text="What is the best-selling video game of all time?",
+                answer=["Minecraft", "Tetris", "Grand Theft Auto V", "Wii Sports"],
+                correct_answers="Minecraft",
+                subcategory="Video Games"
+            ),
         ]
     },
     "Anime Trivia": {
         "Popular Anime": [
-            {
-                "question": "Who is the main character of Naruto?",
-                "options": ["Sasuke Uchiha", "Naruto Uzumaki", "Kakashi Hatake", "Sakura Haruno"],
-                "answer": "Naruto Uzumaki"
-            },
-            {
-                "question": "Which anime features a giant humanoid creature called a Titan?",
-                "options": ["One Piece", "Attack on Titan", "Dragon Ball Z", "Bleach"],
-                "answer": "Attack on Titan"
-            },
-            {
-                "question": "In One Piece, what is the name of the main pirate crew?",
-                "options": ["Blackbeard Pirates", "Straw Hat Pirates", "Red Hair Pirates", "Whitebeard Pirates"],
-                "answer": "Straw Hat Pirates"
-            }
+            AnimeQuestions(
+                question_text="Who is the main character of Naruto?",
+                answer=["Sasuke Uchiha", "Naruto Uzumaki", "Kakashi Hatake", "Sakura Haruno"],
+                correct_answers="Naruto Uzumaki",
+                subcategory="Popular Anime"
+            ),
+            AnimeQuestions(
+                question_text="Which anime features a giant humanoid creature called a Titan?",
+                answer=["One Piece", "Attack on Titan", "Dragon Ball Z", "Bleach"],
+                correct_answers="Attack on Titan",
+                subcategory="Popular Anime"
+            ),
+            AnimeQuestions(
+                question_text="In One Piece, what is the name of the main pirate crew?",
+                answer=["Blackbeard Pirates", "Straw Hat Pirates", "Red Hair Pirates", "Whitebeard Pirates"],
+                correct_answers="Straw Hat Pirates",
+                subcategory="Popular Anime"
+            ),
         ]
     }
 }
 
 letters = ["a", "b", "c", "d"]
+
+# Load all questions
+quiz.load_from_nested_dict(quiz_questions)
+
+quiz.shuffle_question_bank()
+quiz.reset_game()
 
 # -------------------------------
 # Start of Game
