@@ -125,9 +125,9 @@ quiz_questions = {
 
 letters = ["a", "b", "c", "d"]
 
------------------
+#-----------------
 # Player Class
------------------
+#-----------------
 
 # edited and updated Player class for more flexibility, as well as easier saving, loading, and extension. ~ Christen
 
@@ -203,20 +203,36 @@ class Player:
         # Resume quiz from saved question
         for i in range(start_index, len(questions)):
             q = questions[i]
-            print(q["question"])
-            for j in range(len(q["options"])):
-                print(f"{letters[j]}. {q['options'][j]}")
+            print(q.get_question_text()) #Adjusted to access non-subscriptable objects
+            for j in range(len(q.get_answer())):
+                print(f"{letters[j]}. {q.get_answer()[j]}")
 
-            answer = input("Your answer (a/b/c/d): ").lower()
-            if answer in letters:
-                index = letters.index(answer)
-                if q["options"][index] == q["answer"]:
-                    print("Correct!\n")
-                    score += 1
-                else:
-                    print(f"Wrong! The correct answer was: {q['answer']}\n")
+        answer = input("Your answer (a/b/c/d): ").lower()
+        if answer in letters:
+            index = letters.index(answer)
+            if q.get_answer()[index] == q.get_correct_answers():
+                print("Correct!\n")
+                score += 1
             else:
-                print("Invalid input! Please answer a, b, c, or d.\n")
+                print(f"Wrong! The correct answer was: {q.get_correct_answers()}\n")
+        else:
+            print("Invalid input! Please answer a, b, c, or d.\n")
+
+#Please remove this comment block if everything looks good enough ------------------
+            # print(q["question"])
+            # for j in range(len(q["options"])):
+            #     print(f"{letters[j]}. {q['options'][j]}")
+
+            # answer = input("Your answer (a/b/c/d): ").lower()
+            # if answer in letters:
+            #     index = letters.index(answer)
+            #     if q["options"][index] == q["answer"]:
+            #         print("Correct!\n")
+            #         score += 1
+            #     else:
+            #         print(f"Wrong! The correct answer was: {q['answer']}\n")
+            # else:
+            #     print("Invalid input! Please answer a, b, c, or d.\n")
 
             self.save_game_status(main_selected, sub_selected, score, i + 1)
 
@@ -248,7 +264,7 @@ player.resume_game(quiz_questions, letters)
 # Basically, if the game is interupted before the end, 
 # you will given the choice to continue from where you left off. 
 # Please remove if it breaks anything. ~ Dylan
-resume_saved_game(player, quiz_questions, letters)
+#resume_saved_game(player, quiz_questions, letters)
 
 # -------------------------------
 # Main game loop
@@ -299,20 +315,36 @@ while True:
 
     for i in range(len(questions)):
         q = questions[i]
-        print(q["question"])
-        for j in range(len(q["options"])):
-            print(letters[j] + ". " + q["options"][j])
-        
+        print(q.get_question_text()) #Adjusted to access non-subscriptable objects
+        for j in range(len(q.get_answer())):
+            print(letters[j] + ". " + q.get_answer()[j])
+
         answer = input("Your answer (a/b/c/d): ").lower()
         if answer in letters:
             index = letters.index(answer)
-            if q["options"][index] == q["answer"]:
+            if q.get_answer()[index] == q.get_correct_answers():
                 print("Correct!\n")
                 score += 1
             else:
-                print("Wrong! The correct answer was: " + q["answer"] + "\n")
+                print("Wrong! The correct answer was: " + q.get_correct_answers() + "\n")
         else:
             print("Invalid input! Please answer a, b, c, or d.\n")
+
+#kindly remove this comment block if everything looks good already ~Dylan ----------------------------
+        # print(q["question"])
+        # for j in range(len(q["options"])):
+        #     print(letters[j] + ". " + q["options"][j])
+        
+        # answer = input("Your answer (a/b/c/d): ").lower()
+        # if answer in letters:
+        #     index = letters.index(answer)
+        #     if q["options"][index] == q["answer"]:
+        #         print("Correct!\n")
+        #         score += 1
+        #     else:
+        #         print("Wrong! The correct answer was: " + q["answer"] + "\n")
+        # else:
+        #     print("Invalid input! Please answer a, b, c, or d.\n")
 
         # Added: Save progress after each question. Please Remove if it breaks anything. ~Dylan
         player.save_game_status(main_selected, sub_selected, score, i + 1)
