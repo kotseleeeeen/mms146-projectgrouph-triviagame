@@ -19,7 +19,7 @@ quiz_questions = {
             ),
             PopCultureQuestions(
                 question_text="Which rap song holds the record for winning the most Grammy Awards?",
-                answer=["Lose Yourself – Eminem", "God’s Plan – Drake", "Alright – Kendrick Lamar", "Not Like Us – Kendrick Lamar"],
+                answer=["Lose Yourself – Eminem", "God\’s Plan – Drake", "Alright – Kendrick Lamar", "Not Like Us – Kendrick Lamar"],
                 correct_answers="Alright – Kendrick Lamar",
                 subcategory="Celebrity Culture"
             ),
@@ -38,7 +38,7 @@ quiz_questions = {
                 subcategory="Movies"
             ),
             PopCultureQuestions(
-                question_text="Which historical document does Nicholas Cage’s character steal in National Treasure?",
+                question_text="Which historical document does Nicholas Cage\’s character steal in National Treasure?",
                 answer=["The Declaration of Independence", "The U.S. Constitution", "The Bill of Rights", "The Articles of Confederation"],
                 correct_answers="The Declaration of Independence",
                 subcategory="Movies"
@@ -65,7 +65,7 @@ quiz_questions = {
             ),
             PopCultureQuestions(
                 question_text="What was the name of the coffee shop in Friends?",
-                answer=["Brewster’s", "The Daily Grind", "Bean There", "Central Perk"],
+                answer=["Brewster\’s", "The Daily Grind", "Bean There", "Central Perk"],
                 correct_answers="Central Perk",
                 subcategory="TV"
             ),
