@@ -311,6 +311,7 @@ while True:
     # Start quiz
     score = 0
     questions = quiz_questions[main_selected][sub_selected]
+    random.shuffle(questions) #Refactored Shuffle function
     print("\nYou chose: " + main_selected + " -> " + sub_selected + "\n")
 
     for i in range(len(questions)):
