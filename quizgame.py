@@ -1,105 +1,7 @@
-from questions import PopCultureQuestions, AnimeQuestions, GameQuestions
-from questions import Questions #Crucial Import to fascilitate method calls
+from questions import * #Import * means to import all classes under the questions.py file
 import random
 
-quiz_questions = {
-    "Pop Culture": {
-        "Celebrity Culture": [
-            {
-                "question": "Who was the first Black woman to win the Academy Award for Best Actress in 2002?",
-                "options": ["Halle Berry", "Viola Davis", "Whoopi Goldberg", "Angela Bassett"],
-                "answer": "Halle Berry"
-            },
-            {
-                "question": "Which rap song holds the record for winning the most Grammy Awards?",
-                "options": ["Lose Yourself – Eminem", "God’s Plan – Drake", "Alright – Kendrick Lamar", "Not Like Us – Kendrick Lamar"],
-                "answer": "Alright – Kendrick Lamar"
-            },
-            {
-                "question": "What was the name of the 2019 YouTube video in which Tati Westbrook ended her friendship with James Charles?",
-                "options": ["Breaking My Silence", "Bye James", "Bye Sister", "Sisters No More"],
-                "answer": "Bye Sister"
-            }
-        ],
-        "Movies": [
-            {
-                "question": "What is the highest-grossing film of all time?",
-                "options": ["Avengers: Endgame", "Titanic", "Avatar", "Star Wars: The Force Awakens"],
-                "answer": "Avatar"
-            },
-            {
-                "question": "Which historical document does Nicholas Cage’s character steal in National Treasure?",
-                "options": ["The Declaration of Independence", "The U.S. Constitution", "The Bill of Rights", "The Articles of Confederation"],
-                "answer": "The Declaration of Independence"
-            },
-            {
-                "question": "Which of the following is the longest non-experimental narrative film ever made?",
-                "options": ["Logistics", "Amra Ekta Cinema Banabo", "The Cure for Insomnia", "Out 1"],
-                "answer": "Amra Ekta Cinema Banabo"
-            }
-        ],
-        "TV": [
-            {
-                "question": "Which TV show ends by suddenly cutting to black?",
-                "options": ["True Detective", "The Sopranos", "Breaking Bad", "Lost"],
-                "answer": "The Sopranos"
-            },
-            {
-                "question": "Game of Thrones is based on which book series by George R.R. Martin?",
-                "options": ["A Song of Ice and Fire", "A Clash of Kings", "A Dance with Dragons", "The Witcher"],
-                "answer": "A Song of Ice and Fire"
-            },
-            {
-                "question": "What was the name of the coffee shop in Friends?",
-                "options": ["Brewster’s", "The Daily Grind", "Bean There", "Central Perk"],
-                "answer": "Central Perk"
-            },
-            {
-                "question": "Which morning TV show was involved in a scandal when two anchors were revealed to be in an extramarital relationship?",
-                "options": ["CBS This Morning", "Morning Joe", "Good Morning America", "Today"],
-                "answer": "Good Morning America"
-            }
-        ]
-    },
-    "Game Trivia": {
-        "Video Games": [
-            {
-                "question": "Which game features the character Link?",
-                "options": ["Super Mario", "Zelda", "Halo", "Minecraft"],
-                "answer": "Zelda"
-            },
-            {
-                "question": "Which video game series has creatures called 'Pokémon'?",
-                "options": ["Digimon", "Pokémon", "Yu-Gi-Oh!", "Dragon Ball Z"],
-                "answer": "Pokémon"
-            },
-            {
-                "question": "What is the best-selling video game of all time?",
-                "options": ["Minecraft", "Tetris", "Grand Theft Auto V", "Wii Sports"],
-                "answer": "Minecraft"
-            }
-        ]
-    },
-    "Anime Trivia": {
-        "Popular Anime": [
-            {
-                "question": "Who is the main character of Naruto?",
-                "options": ["Sasuke Uchiha", "Naruto Uzumaki", "Kakashi Hatake", "Sakura Haruno"],
-                "answer": "Naruto Uzumaki"
-            },
-            {
-                "question": "Which anime features a giant humanoid creature called a Titan?",
-                "options": ["One Piece", "Attack on Titan", "Dragon Ball Z", "Bleach"],
-                "answer": "Attack on Titan"
-            },
-            {
-                "question": "In One Piece, what is the name of the main pirate crew?",
-                "options": ["Blackbeard Pirates", "Straw Hat Pirates", "Red Hair Pirates", "Whitebeard Pirates"],
-                "answer": "Straw Hat Pirates"
-            }
-        ]
-    }
-}
+#removed dataset from here since nandoon na siya sa main.py
 
 class QuizGame:
     def __init__(self):
@@ -195,3 +97,4 @@ class QuizGame:
 
     def reset_game(self):
         self.__score = 0
+
